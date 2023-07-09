@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Website.Models.FoodItem>
+
+@{
+    ViewData["Title"] = "Food Items";
+}
+
+<h1>Food Items</h1>
+
+<div class="row row-cols-1 row-cols-md-4 g-4">
+    @foreach (var item in Model)
+    {
+        <div class="col">
+            <div class="shadow rounded card" style="width: 18rem;">
+                <img src="data:image/*;base64,@(Convert.ToBase64String(item.ImageData))" class="card-img-top" alt="Photo">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text">@item.Description</p>
+                    <a href="/Home/AddtoCart/@item.Id" class="btn btn-outline-warning">$ @item.Price</a>
+                </div>
+                <style type="text/css">
+
+                    body {
+                        background-image: url("https://img.freepik.com/free-vector/pizza-menu-chalkboard-background_1284-11715.jpg?w=1480&t=st=1688750037~exp=1688750637~hmac=17ac6bb4e41c79c5bad1c5b5c22362c114e4ff40a0ff78bc62be6ab454d73fb4");
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                </style>
+            </div>
+        </div>
+    }
+</div>
